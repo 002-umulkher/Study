@@ -15,12 +15,11 @@ async function callAI() {
     userInput.value = '';
 
     try {
-        // CALLING YOUR VERCEL API (Not Google directly)
-        const response = await fetch('/api/generate', {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ prompt: message })
-        });
+       const response = await fetch('/api/chat', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message: userText })
+});
 
         const data = await response.json();
         const aiText = data.candidates[0].content.parts[0].text;
