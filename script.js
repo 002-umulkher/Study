@@ -37,3 +37,5 @@ async function callAI() {
         console.error("Connection Error:", error);
     }
 }
+
+sendBtn.addEventListener('click', callAI);
