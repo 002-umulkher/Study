@@ -3,7 +3,7 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
 async function callAI() {
-    const message = userInput.value;
+    const message = document.getElementById('user-Input').value;
     if (!message) return;
 
     // Show user message
