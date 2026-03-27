@@ -3,7 +3,7 @@ const userInput = document.getElementById('user-input');
 const sendBtn = document.getElementById('send-btn');
 
 async function callAI() {
-    const message = userInput.value;
+    const message = userInput.value; // You defined the variable as 'message' here
     if (!message) return;
 
     // Add user message to UI
@@ -15,11 +15,12 @@ async function callAI() {
     userInput.value = '';
 
     try {
-       const response = await fetch('/api/chat', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ message: userText })
-});
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            // CHANGED: Use 'message' instead of 'userText' so it matches the variable above
+            body: JSON.stringify({ message: message }) 
+        });
 
         const data = await response.json();
         const aiText = data.candidates[0].content.parts[0].text;
